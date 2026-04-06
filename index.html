@@ -109,8 +109,8 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
 
 <div class="reg-banner">
   <strong>Regulatory sources:</strong>
-  <span class="pill pill-ccpa">CCPA</span> Explicitly prohibited — Central Consumer Protection Authority Guidelines for Prevention and Regulation of Dark Patterns, 2023 (<em>Dark_Patterns_Nov_2023.pdf · Annexure 1</em>). Pattern names match the official Gazette spelling.
-  &nbsp;<span class="pill pill-irdai">IRDAI</span> Additionally applicable to insurance platforms per IRDAI Circular, April 2026 (<em>IRDAI_Circular_Apr_2026.pdf · p.1</em>).
+  <span class="pill pill-ccpa">CCPA</span> Explicitly prohibited — Central Consumer Protection Authority Guidelines for Prevention and Regulation of Dark Patterns, 2023 (<em>Dark_Patterns_Nov_2023.pdf · Annexure 1</em>). Exactly 13 patterns are named in the Gazette; pattern names match official Gazette spelling.
+  &nbsp;<span class="pill pill-irdai">IRDAI</span> Additionally applicable to insurance platforms per IRDAI Circular, April 2026 (<em>IRDAI_Circular_Apr_2026.pdf · p.1</em>) — applies to the same 13 CCPA-listed patterns.
   &nbsp;<span class="pill pill-edpb">EDPB</span> Identified in European Data Protection Board Guidelines 03/2022 on Deceptive Design Patterns in Social Media Interfaces (v2.0, Feb 2023).
   &nbsp;<span class="pill pill-dsa">EU/DSA</span> Addressed by DSA Article 25, EU Digital Fairness Act Consultation (2024), and EP Resolution on Addictive Design (Dec 2023).
 </div>
@@ -130,7 +130,7 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
 
 <div class="stats">
   <div class="stat"><div class="stat-n" id="s-total">30</div><div class="stat-l">Total patterns</div></div>
-  <div class="stat"><div class="stat-n" id="s-ccpa" style="color:#A32D2D">18</div><div class="stat-l">CCPA / IRDAI</div></div>
+  <div class="stat"><div class="stat-n" id="s-ccpa" style="color:#A32D2D">13</div><div class="stat-l">CCPA / IRDAI</div></div>
   <div class="stat"><div class="stat-n" id="s-eu" style="color:#3F51B5">4</div><div class="stat-l">EU / EDPB</div></div>
   <div class="stat"><div class="stat-n" id="s-crit" style="color:#993C1D">0</div><div class="stat-l">Critical (8+)</div></div>
 </div>
@@ -142,7 +142,7 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
     <option value="alpha">A–Z</option>
   </select>
   <button class="fbtn active" data-src="all">All (30)</button>
-  <button class="fbtn" data-src="ccpa">CCPA / IRDAI</button>
+  <button class="fbtn" data-src="ccpa">CCPA / IRDAI (13)</button>
   <button class="fbtn" data-src="eu">EU / EDPB</button>
   <button class="fbtn" data-src="site">deceptive.design</button>
   <button class="fbtn" data-src="research">Research</button>
@@ -221,8 +221,8 @@ const P=[
    ],
    fin:3,priv:0,psych:2,det:1,tags:["fin"]},
 
-  {name:"Forced Continuity",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
-   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §12 · PDF p.11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §12 (SaaS Billing sub-type)",edpb_ref:"",eu_ref:"",
+  {name:"Forced Continuity",src:"research",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
    desc:"Free trial silently converts to a paid subscription with no notification. Also covers silent auto-renewal and charging for features not used. Differs from SaaS Billing in that it specifically involves a free-to-paid conversion trigger.",
    examples:[
      {text:"Silent recurring transactions whereby the user's account is debited without being notified or monthly subscriptions auto-renew without informing users — CCPA §12 Illustration (b)",type:"ccpa"},
@@ -243,8 +243,8 @@ const P=[
    ],
    fin:3,priv:0,psych:2,det:2,tags:["fin","psych"]},
 
-  {name:"Roach Motel",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
-   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §5 · PDF pp.9–10",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §5 (Subscription Trap sub-type)",edpb_ref:"",eu_ref:"",
+  {name:"Roach Motel",src:"research",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
    desc:"Easy in, nearly impossible out — the exit path from an account, service, or mailing list is hidden, time-limited, or deliberately complex to discourage leaving.",
    examples:[
      {text:"Making cancellation instructions ambiguous, latent, confusing, or cumbersome — CCPA §5(iv)",type:"ccpa"},
@@ -375,8 +375,8 @@ const P=[
    ],
    fin:2,priv:0,psych:2,det:1,tags:["fin","psych"]},
 
-  {name:"Fake Urgency",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
-   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §1 · PDF p.8",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §1 (False Urgency sub-type)",edpb_ref:"",eu_ref:"",
+  {name:"Fake Urgency",src:"site",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
    desc:"Countdown timers on insurance quotes that reset on page refresh — manufactured FOMO with no real deadline, preventing careful policy comparison.",
    examples:[
      {text:"Falsely implying a sense of urgency or scarcity to mislead a user into making an immediate purchase — CCPA §1 definition",type:"ccpa"},
@@ -408,8 +408,8 @@ const P=[
    ],
    fin:2,priv:0,psych:1,det:2,tags:["fin"]},
 
-  {name:"Hidden costs",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
-   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §8 · PDF pp.10–11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §8 (Drip Pricing sub-type)",edpb_ref:"",eu_ref:"",
+  {name:"Hidden costs",src:"site",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
    desc:"A low price shown prominently early; GST, stamp duty, and service fees revealed only at the final checkout step after the user has invested significant time in the journey.",
    examples:[
      {text:"Elements of price are not revealed upfront or are revealed surreptitiously within the user experience — CCPA §8(i)",type:"ccpa"},
@@ -463,8 +463,8 @@ const P=[
    ],
    fin:0,priv:2,psych:2,det:1,tags:["priv","psych"]},
 
-  {name:"Visual Interference",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
-   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §6 · PDF p.10",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §6 (Interface Interference sub-type)",edpb_ref:"",eu_ref:"",
+  {name:"Visual Interference",src:"site",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
    desc:"Important coverage limitations, exclusions, or costs de-emphasised through low contrast, small fonts, or misleading layout — while premiums and 'Buy' CTAs are made highly prominent.",
    examples:[
      {text:"Designing a light-coloured option for selecting 'No', concealing the cancellation symbol in tiny font, or changing key symbol meanings to their opposite — CCPA §6 Illustration (a)",type:"ccpa"},
