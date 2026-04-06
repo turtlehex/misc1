@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dark Patterns — CCPA &amp; IRDAI Scored Guide (Insurance Edition)</title>
+<title>Dark Patterns — CCPA, IRDAI &amp; EU Scored Guide</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f5;color:#1a1a18;padding:1.5rem;font-size:14px;line-height:1.5}
@@ -14,6 +14,8 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
 .pill{display:inline-block;padding:1px 7px;border-radius:20px;font-size:11px;font-weight:500}
 .pill-ccpa{background:#E24B4A;color:#fff}
 .pill-irdai{background:#3B6D11;color:#fff}
+.pill-edpb{background:#3F51B5;color:#fff}
+.pill-dsa{background:#E65100;color:#fff}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:1rem}
 .stat{background:#fff;border:0.5px solid #d4d4ce;border-radius:8px;padding:10px 12px;text-align:center}
 .stat-n{font-size:20px;font-weight:500}
@@ -49,6 +51,8 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
 .tag-percep{background:#E1F5EE;color:#0F6E56;border:0.5px solid #9FE1CB}
 .tag-ccpa{background:#E24B4A;color:#fff;border:none;font-weight:500}
 .tag-irdai{background:#3B6D11;color:#fff;border:none;font-weight:500}
+.tag-edpb{background:#3F51B5;color:#fff;border:none;font-weight:500}
+.tag-dsa{background:#E65100;color:#fff;border:none;font-weight:500}
 .tag-src{font-size:10px;padding:1px 6px;border-radius:20px;background:#f0f0ec;color:#9b9b96}
 .src-ref{font-size:10px;color:#b0b0a8;font-style:italic;line-height:1.45;margin-top:1px}
 .see-more{font-size:10px;color:#185FA5;font-weight:500;margin-top:2px}
@@ -56,8 +60,6 @@ h1{font-size:20px;font-weight:500;margin-bottom:4px}
 .legend-item{display:flex;align-items:center;gap:5px}
 .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
 footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4ce;padding-top:10px;line-height:1.7}
-
-/* ── OVERLAY ── */
 #overlay{position:fixed;inset:0;background:rgba(0,0,0,0.38);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .2s;padding:1rem}
 #overlay.open{opacity:1;pointer-events:all}
 #modal{background:#fff;border-radius:16px;max-width:560px;width:100%;max-height:84vh;overflow-y:auto;padding:1.5rem;transform:scale(0.96) translateY(6px);transition:transform .22s cubic-bezier(.22,.68,0,1.2);scrollbar-width:thin}
@@ -75,17 +77,19 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
 .ex-legend{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px;font-size:10px;color:#6b6b67}
 .ex-badge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;white-space:nowrap;letter-spacing:.02em;flex-shrink:0}
 .ex-badge-ccpa{background:#E24B4A;color:#fff}
+.ex-badge-edpb{background:#3F51B5;color:#fff}
+.ex-badge-eu{background:#E65100;color:#fff}
 .ex-badge-ins{background:#0F6E56;color:#fff}
 #modal-examples-list{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
 .ex-item{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:8px}
 .ex-item-ccpa{background:#FFF5F5;border-left:2px solid #E24B4A}
+.ex-item-edpb{background:#F3F4FD;border-left:2px solid #3F51B5}
+.ex-item-eu{background:#FFF3E0;border-left:2px solid #E65100}
 .ex-item-ins{background:#F2FAF6;border-left:2px solid #0F6E56}
 .ex-text{font-size:11.5px;color:#3a3a38;line-height:1.55}
 #modal-reg{padding-top:12px;border-top:0.5px solid #ebebE7}
 .reg-ref-item{display:flex;gap:7px;align-items:flex-start;font-size:11px;color:#6b6b67;line-height:1.5;margin-top:6px}
 .reg-ref-icon{flex-shrink:0}
-
-/* ── MOBILE BOTTOM SHEET ── */
 @media(max-width:640px){
   body{padding:1rem .875rem}
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -100,11 +104,15 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
 </head>
 <body>
 
-<h1>Dark Patterns — CCPA &amp; IRDAI Scored Reference Guide</h1>
-<p class="subtitle">Sources: Brignull (deceptive.design) · Academic research · CCPA Guidelines 2023 · IRDAI Circular April 2026 &nbsp;|&nbsp; Click any card — popups show official CCPA illustrations first, followed by insurance examples</p>
+<h1>Dark Patterns — CCPA, IRDAI &amp; EU Scored Reference Guide</h1>
+<p class="subtitle">Sources: Brignull (deceptive.design) · Research · CCPA Gazette Annexure 1, 2023 · IRDAI Circular Apr 2026 · EDPB Guidelines 03/2022 · EU DSA &amp; Digital Fairness Act &nbsp;|&nbsp; Click any card for official illustrations &amp; insurance examples</p>
 
 <div class="reg-banner">
-  <strong>Regulatory context:</strong> Patterns tagged <span class="pill pill-ccpa">CCPA</span> are explicitly prohibited under the Central Consumer Protection Authority (India) Guidelines for Prevention and Regulation of Dark Patterns, 2023 (<em>Dark_Patterns_Nov_2023.pdf</em>). Patterns tagged <span class="pill pill-irdai">IRDAI</span> are additionally covered by the IRDAI Circular, April 2026 (<em>IRDAI_Circular_Apr_2026.pdf · p.1</em>), applicable to insurance platforms. In each popup, <strong>official CCPA illustrations appear first</strong>, followed by insurance-specific examples.
+  <strong>Regulatory sources:</strong>
+  <span class="pill pill-ccpa">CCPA</span> Explicitly prohibited — Central Consumer Protection Authority Guidelines for Prevention and Regulation of Dark Patterns, 2023 (<em>Dark_Patterns_Nov_2023.pdf · Annexure 1</em>). Pattern names match the official Gazette spelling.
+  &nbsp;<span class="pill pill-irdai">IRDAI</span> Additionally applicable to insurance platforms per IRDAI Circular, April 2026 (<em>IRDAI_Circular_Apr_2026.pdf · p.1</em>).
+  &nbsp;<span class="pill pill-edpb">EDPB</span> Identified in European Data Protection Board Guidelines 03/2022 on Deceptive Design Patterns in Social Media Interfaces (v2.0, Feb 2023).
+  &nbsp;<span class="pill pill-dsa">EU/DSA</span> Addressed by DSA Article 25, EU Digital Fairness Act Consultation (2024), and EP Resolution on Addictive Design (Dec 2023).
 </div>
 
 <div class="legend">
@@ -113,15 +121,18 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
   <span class="legend-item"><span class="dot" style="background:#FAEEDA;border:1px solid #854F0B"></span>Medium (4–5)</span>
   <span class="legend-item"><span class="dot" style="background:#FAECE7;border:1px solid #993C1D"></span>High (6–7)</span>
   <span class="legend-item"><span class="dot" style="background:#FCEBEB;border:1px solid #A32D2D"></span>Critical (8–10)</span>
-  <span class="legend-item" style="margin-left:8px"><span class="pill pill-ccpa" style="font-size:10px">CCPA</span> Explicitly prohibited</span>
+  &nbsp;
+  <span class="legend-item"><span class="pill pill-ccpa" style="font-size:10px">CCPA</span> India — prohibited</span>
   <span class="legend-item"><span class="pill pill-irdai" style="font-size:10px">IRDAI</span> Insurance sector</span>
+  <span class="legend-item"><span class="pill pill-edpb" style="font-size:10px">EDPB</span> EU — GDPR framework</span>
+  <span class="legend-item"><span class="pill pill-dsa" style="font-size:10px">EU/DSA</span> EU — DSA/DFA</span>
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-n" id="s-total">26</div><div class="stat-l">Total patterns</div></div>
-  <div class="stat"><div class="stat-n" id="s-reg" style="color:#A32D2D">18</div><div class="stat-l">CCPA / IRDAI regulated</div></div>
+  <div class="stat"><div class="stat-n" id="s-total">30</div><div class="stat-l">Total patterns</div></div>
+  <div class="stat"><div class="stat-n" id="s-ccpa" style="color:#A32D2D">18</div><div class="stat-l">CCPA / IRDAI</div></div>
+  <div class="stat"><div class="stat-n" id="s-eu" style="color:#3F51B5">4</div><div class="stat-l">EU / EDPB</div></div>
   <div class="stat"><div class="stat-n" id="s-crit" style="color:#993C1D">0</div><div class="stat-l">Critical (8+)</div></div>
-  <div class="stat"><div class="stat-n" id="s-high" style="color:#854F0B">0</div><div class="stat-l">High (6–7)</div></div>
 </div>
 
 <div class="filters">
@@ -130,8 +141,9 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
     <option value="score-asc">Lowest danger first</option>
     <option value="alpha">A–Z</option>
   </select>
-  <button class="fbtn active" data-src="all">All (26)</button>
-  <button class="fbtn" data-src="ccpa">CCPA / IRDAI only</button>
+  <button class="fbtn active" data-src="all">All (30)</button>
+  <button class="fbtn" data-src="ccpa">CCPA / IRDAI</button>
+  <button class="fbtn" data-src="eu">EU / EDPB</button>
   <button class="fbtn" data-src="site">deceptive.design</button>
   <button class="fbtn" data-src="research">Research</button>
   <select id="harmSel">
@@ -143,20 +155,14 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
   </select>
 </div>
 
-<div class="count-label" id="countLabel">Showing 26 patterns</div>
+<div class="count-label" id="countLabel">Showing 30 patterns</div>
 <div class="grid" id="cardGrid"></div>
 
 <div id="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div id="modal">
     <div class="handle"></div>
-    <div id="modal-head">
-      <div id="modal-title"></div>
-      <button id="modal-close" aria-label="Close">&#x2715;</button>
-    </div>
-    <div id="modal-score-row">
-      <div id="modal-badge"></div>
-      <div id="modal-score-info"></div>
-    </div>
+    <div id="modal-head"><div id="modal-title"></div><button id="modal-close" aria-label="Close">&#x2715;</button></div>
+    <div id="modal-score-row"><div id="modal-badge"></div><div id="modal-score-info"></div></div>
     <div id="modal-tags"></div>
     <div id="modal-desc"></div>
     <div class="modal-section-title">Illustrations &amp; examples</div>
@@ -167,7 +173,7 @@ footer{margin-top:2rem;font-size:10px;color:#9b9b96;border-top:0.5px solid #d4d4
 </div>
 
 <footer>
-  Compiled from: Brignull, H. <em>deceptive.design</em> (2023) &bull; CCPA Guidelines for Prevention and Regulation of Dark Patterns, 2023, Gazette of India, Annexure 1 (<em>Dark_Patterns_Nov_2023.pdf</em>) &bull; IRDAI Circular, April 2026 (<em>IRDAI_Circular_Apr_2026.pdf</em>) &bull; Wikipedia &bull; NNGroup &bull; Princeton &amp; University of Chicago (2019) &bull; FTC enforcement records. Official CCPA illustrations are paraphrased from Annexure 1 of the Gazette notification. For awareness purposes only — not legal advice.
+  Compiled from: Brignull, H. <em>deceptive.design</em> (2023) &bull; CCPA Guidelines for Prevention and Regulation of Dark Patterns, 2023 — Gazette of India No.783, 30 Nov 2023 (<em>Dark_Patterns_Nov_2023.pdf</em>) — pattern names match official Annexure 1 spelling &bull; IRDAI Circular, April 2026 &bull; EDPB Guidelines 03/2022 on Deceptive Design Patterns in Social Media Platform Interfaces, v2.0 Feb 2023 &bull; EU Digital Services Act (Article 25, Recital 67) &bull; EU Digital Fairness Act Public Consultation 2024 &bull; European Parliament Resolution on Addictive Design, Dec 2023 &bull; NNGroup &bull; Princeton &amp; University of Chicago (2019) &bull; FTC enforcement records. For awareness purposes only — not legal advice.
 </footer>
 
 <script>
@@ -177,331 +183,340 @@ function barCol(k){return{fin:"#185FA5",priv:"#534AB7",psych:"#854F0B",det:"#0F6
 function barMax(k){return(k==="det"||k==="psych")?2:3}
 function sc(s){return s>=8?"sc-crit":s>=6?"sc-high":s>=4?"sc-med":"sc-low"}
 function scLabel(s){return s>=8?"Critical":s>=6?"High":s>=4?"Medium":"Low"}
+function badgeClass(t){return{ccpa:"ex-badge-ccpa",edpb:"ex-badge-edpb",eu:"ex-badge-eu"}[t]||"ex-badge-ins"}
+function itemClass(t){return{ccpa:"ex-item-ccpa",edpb:"ex-item-edpb",eu:"ex-item-eu"}[t]||"ex-item-ins"}
+function badgeLabel(t){return{ccpa:"CCPA",edpb:"EDPB",eu:"EU/DSA"}[t]||"Insurance"}
 
-/* examples: {text, type:"ccpa"|"ins"} */
 const P=[
-  {
-    name:"Rogue malware",src:"research",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §13 · PDF p.11",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §13",
-    desc:"Scareware or ransomware falsely convinces users their device has a virus and charges for a fake removal tool that actually installs malware. Also covers piracy platforms with deceptive download links embedding malware.",
-    examples:[
-      {text:"A pirating website or app promises free audio/visual content but leads to embedded malware when the link is accessed — as specified in CCPA Annexure 1, §13(a)",type:"ccpa"},
-      {text:"Consumers on pirated platforms gain access to content but receive persistent pop-ups with malware-embedded advertisements — CCPA §13(b)",type:"ccpa"},
-      {text:"Consumers are prompted to click an advertisement or automatically redirected to one, but find their personal files locked — a payment is then demanded to regain access — CCPA §13(c)",type:"ccpa"},
-      {text:"Fake insurance renewal portals styled identically to HDFC ERGO or LIC collect premium payments and OTPs but issue no policy document",type:"ins"}
-    ],
-    fin:3,priv:2,psych:2,det:2,tags:["fin","priv","psych"]
-  },
-  {
-    name:"Hidden subscription",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §5 & §12 · PDF pp.9–11",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §5 / §12",
-    desc:"User unknowingly enrolled in recurring charges without clear disclosure or explicit consent — often via a pre-checked option or fine print during an unrelated transaction.",
-    examples:[
-      {text:"Making cancellation of a paid subscription impossible or a complex, lengthy process — CCPA §5(i)",type:"ccpa"},
-      {text:"Hiding the cancellation option for a subscription — CCPA §5(ii)",type:"ccpa"},
-      {text:"No notification given to the user when a free trial is converted to paid — CCPA §12(a)",type:"ccpa"},
-      {text:"Health insurer bundles a ₹1,200/year 'wellness rewards' subscription into the base premium at renewal — opt-out buried in fine print with no separate consent",type:"ins"}
-    ],
-    fin:3,priv:1,psych:2,det:2,tags:["fin","priv"]
-  },
-  {
-    name:"Drip pricing",src:"research",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §8 · PDF pp.10–11",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §8",
-    desc:"Low headline premium shown; GST, stamp duty, and surcharges are dripped in incrementally only at the final checkout screen — making the final amount significantly higher than what was shown.",
-    examples:[
-      {text:"Consumer books a flight; the platform shows price X at checkout, but charges price Y (higher) when payment is made — CCPA §8 Illustration (a)",type:"ccpa"},
-      {text:"A mobile chess app advertised as 'play chess for free' asks for payment after 7 days — the limited free period was not disclosed at download — CCPA §8 Illustration (b)",type:"ccpa"},
-      {text:"A gym membership is purchased; the user must then buy special shoes from the gym to actually use it — not disclosed at the time of offering the membership — CCPA §8 Illustration (c)",type:"ccpa"},
-      {text:"Bike insurance: ₹2,800 headline premium becomes ₹3,654 at checkout after ₹504 GST and ₹350 'policy issuance fee' appear for the first time",type:"ins"}
-    ],
-    fin:3,priv:0,psych:2,det:1,tags:["fin"]
-  },
-  {
-    name:"Forced continuity",src:"research",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §12 · PDF p.11",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §12 (SaaS Billing)",
-    desc:"Free trial silently converts to paid with no warning. Also covers silent recurring transactions, auto-renewal without notification, and charging for features the user does not use.",
-    examples:[
-      {text:"No notification is given to the user when a free trial is converted to a paid subscription — CCPA §12 Illustration (a)",type:"ccpa"},
-      {text:"Silent recurring transactions where the user's account is debited without being notified, or monthly subscriptions auto-renew without informing users — CCPA §12(b)",type:"ccpa"},
-      {text:"Charging customers for features and services they do not actually use — CCPA §12(c)",type:"ccpa"},
-      {text:"Motor insurer offers 'Zero Depreciation cover free for Year 1'; at renewal it auto-applies with no reminder, adding ₹2,100 to the premium",type:"ins"}
-    ],
-    fin:3,priv:0,psych:1,det:2,tags:["fin"]
-  },
-  {
-    name:"Hard to cancel",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §5 · PDF pp.9–10",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §5 (Subscription Trap)",
-    desc:"Sign-up is frictionless; cancellation is buried behind multiple steps, phone calls, or confusing instructions — exploiting inertia to retain revenue the insured didn't intend to pay.",
-    examples:[
-      {text:"Making cancellation of a paid subscription impossible or a complex and lengthy process — CCPA §5(i)",type:"ccpa"},
-      {text:"Hiding the cancellation option for a subscription — CCPA §5(ii)",type:"ccpa"},
-      {text:"Making cancellation instructions ambiguous, latent, confusing, or cumbersome — CCPA §5(iv)",type:"ccpa"},
-      {text:"Free-look period cancellation (an IRDAI-mandated 15-day right) requires a signed physical letter couriered to a specific branch — no online or email option, despite the policy being sold digitally",type:"ins"}
-    ],
-    fin:3,priv:0,psych:2,det:2,tags:["fin","psych"]
-  },
-  {
-    name:"Roach motel",src:"research",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §5 · PDF pp.9–10",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §5 (Subscription Trap)",
-    desc:"Easy to enrol in a policy or add-on; nearly impossible to exit — the cancellation or removal path is hidden, time-limited, or deliberately complex.",
-    examples:[
-      {text:"Making cancellation of a paid subscription impossible or a complex, lengthy process — CCPA §5(i)",type:"ccpa"},
-      {text:"Hiding the cancellation option for a subscription — CCPA §5(ii)",type:"ccpa"},
-      {text:"Forcing a user to provide payment details or authorise auto-debits even to avail a free subscription — CCPA §5(iii)",type:"ccpa"},
-      {text:"A bundled credit-linked life insurance policy sold at loan disbursement can only be cancelled by visiting the bank branch with original loan documents — no digital cancellation path exists",type:"ins"}
-    ],
-    fin:3,priv:0,psych:2,det:1,tags:["fin","psych"]
-  },
-  {
-    name:"Privacy zuckering",src:"research",ccpa:false,irdai:false,ccpa_ref:"",pdf_ref:"",irdai_ref:"",
-    desc:"Users tricked into sharing far more personal data than intended through confusing settings, bundled consents, or opaque data-sharing agreements hidden in terms and conditions.",
-    examples:[
-      {text:"Health insurance app requests fitness tracker data, location, and contacts during onboarding — all bundled into a single consent tick-box",type:"ins"},
-      {text:"Motor insurer telematics app shares driving behaviour data with 'selected marketing partners' — disclosed only in a 72-page policy schedule",type:"ins"},
-      {text:"Insurance aggregator shares submitted quote data (health history, income, family details) with 15+ insurers and their DSAs under a broadly worded ToS",type:"ins"},
-      {text:"Life insurer's 'wellness assessment' collects detailed medical history shared with reinsurers and underwriting partners without explicit disclosure",type:"ins"}
-    ],
-    fin:0,priv:3,psych:1,det:2,tags:["priv"]
-  },
-  {
-    name:"Friend spam",src:"research",ccpa:false,irdai:false,ccpa_ref:"",pdf_ref:"",irdai_ref:"",
-    desc:"App accesses your contact list and sends messages appearing to come from you without consent — used to grow a platform's user base at the user's social expense.",
-    examples:[
-      {text:"Insurance aggregator's referral programme uploads the user's entire phonebook and sends WhatsApp messages saying '[Name] shared a policy quote with you' — without per-contact consent",type:"ins"},
-      {text:"Health insurance app asks for contacts to 'invite family members to be covered' then sends promotional SMSes to all contacts",type:"ins"},
-      {text:"Life insurance app's 'Gift a policy' feature sends automated emails to all contacts with the buyer's name in the sender line — without review",type:"ins"},
-      {text:"Motor insurer's loyalty app sends renewal reminders to emergency contacts whose numbers were shared for claims purposes, not marketing",type:"ins"}
-    ],
-    fin:0,priv:3,psych:2,det:2,tags:["priv","psych"]
-  },
-  {
-    name:"Cookie walls",src:"research",ccpa:false,irdai:false,ccpa_ref:"",pdf_ref:"",irdai_ref:"",
-    desc:"Content or core functionality is withheld unless the user accepts all cookies — in insurance, this blocks access to quotes or policy documents behind tracking consent.",
-    examples:[
-      {text:"Insurance comparison portal blocks quote results: 'Accept all cookies to view premium quotes' — with no partial consent option",type:"ins"},
-      {text:"Insurer's policy document portal requires accepting advertising cookies before a policyholder can download their own policy schedule",type:"ins"},
-      {text:"Health insurer's claim status tracker is inaccessible without enabling all analytics cookies — even for existing customers",type:"ins"},
-      {text:"Motor insurer's 'compare renewal quotes' page gates access behind full cookie consent with 'Accept All' as the only prominent button",type:"ins"}
-    ],
-    fin:0,priv:3,psych:2,det:1,tags:["priv","psych"]
-  },
-  {
-    name:"Misdirection",src:"research",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §6 · PDF p.10",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §6 (Interface Interference)",
-    desc:"Attention deliberately redirected away from important information using visual design, colour contrast, or layout choices that serve business interests over user clarity.",
-    examples:[
-      {text:"Designing a light-coloured option for selecting 'No' in response to a pop-up, or concealing the cancellation symbol in tiny font, or changing the meaning of key symbols to mean the opposite — CCPA §6 Illustration (a)",type:"ccpa"},
-      {text:"A 'X' icon on the top-right corner of a pop-up screen leads to opening another advertisement rather than closing the current one — CCPA §6 Illustration (b)",type:"ccpa"},
-      {text:"Motor insurance aggregator shows 'Minimum IDV' pre-selected alongside a 'Lowest Price' and 'Best Match' badge — users are steered toward minimum-payout coverage without understanding the trade-off",type:"ins"},
-      {text:"Motor insurance cancellation flow shows 'Keep my plan' as a large primary green button; 'Cancel subscription' is a tiny grey text link below it",type:"ins"}
-    ],
-    fin:2,priv:1,psych:2,det:2,tags:["psych","percep"]
-  },
-  {
-    name:"Sneaking",src:"site",ccpa:false,irdai:false,ccpa_ref:"",pdf_ref:"",irdai_ref:"",
-    desc:"Critical terms, exclusions, or cost components are hidden or deliberately delayed until the user has committed — revealing unfavourable conditions only after premium is paid.",
-    examples:[
-      {text:"A bike insurance quote flow shows the premium across 4 steps — the sub-limit on engine damage cover appears only in the policy schedule emailed after purchase",type:"ins"},
-      {text:"Health insurer collects personal and medical data across 6 steps; the 20% co-pay clause applicable to all claims is disclosed only in the final policy PDF",type:"ins"},
-      {text:"Aggregator pre-fills NCB at 50% in the quote flow; the fact that this is unverified and could be rejected at claim time is not disclosed anywhere in the journey",type:"ins"},
-      {text:"Travel insurance purchased at a kiosk does not mention adventure sports and pre-existing conditions are excluded until the physical policy document is handed over post-purchase",type:"ins"}
-    ],
-    fin:2,priv:1,psych:1,det:2,tags:["fin","priv"]
-  },
-  {
-    name:"Preselection",src:"site",ccpa:false,irdai:false,ccpa_ref:"",pdf_ref:"",irdai_ref:"",
-    desc:"Default options beneficial to the business are pre-selected — exploiting the default effect to increase opt-ins for add-ons, inaccurate NCB declarations, or higher premium tiers.",
-    examples:[
-      {text:"Motor insurance quote form pre-selects 'No' for 'Made any claims in previous year?' — a user who did claim and misses this creates a fraudulent NCB declaration, grounds for claim repudiation",type:"ins"},
-      {text:"NCB pre-set to 50% on motor insurance quote forms — inflating the discount and creating a potential mismatch with the actual NCB certificate at the time of the claim",type:"ins"},
-      {text:"'PA Owner Driver' add-on pre-selected with a green active border on motor insurance aggregator quote pages — automatically adding ₹150–200 to the premium before the user has made any choice",type:"ins"},
-      {text:"'Minimum IDV' pre-selected as the cover amount on motor quotes — shows the lowest premium but also means the lowest insured declared value payout in case of theft or total loss",type:"ins"}
-    ],
-    fin:2,priv:2,psych:1,det:1,tags:["fin","priv"]
-  },
-  {
-    name:"Fake social proof",src:"site",ccpa:false,irdai:false,ccpa_ref:"",pdf_ref:"",irdai_ref:"",
-    desc:"Fabricated reviews, claim settlement ratings, or real-time activity indicators create a false impression of an insurer's reliability or popularity.",
-    examples:[
-      {text:"Insurance aggregator shows '4.8★ based on 12,000 reviews' for an insurer — reviews include ratings from users who never made a claim and cannot evaluate claim service quality",type:"ins"},
-      {text:"'Claim Settlement Ratio: 98%' displayed prominently — without disclosing the figure is 3 years old and excludes repudiated claims under active dispute",type:"ins"},
-      {text:"'2,500 people bought this policy today' shown on a health plan comparison page — no verification of whether this figure is real-time or accurate",type:"ins"},
-      {text:"Sponsored insurer listings shown under 'Most Popular' or 'Editor's Choice' banners on aggregator platforms without disclosing that placement is a paid arrangement",type:"ins"}
-    ],
-    fin:2,priv:0,psych:2,det:2,tags:["psych","percep"]
-  },
-  {
-    name:"Fake scarcity",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §1 · PDF p.8",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §1 (False Urgency)",
-    desc:"False 'limited availability' signals pressure users into immediate purchase decisions without adequate comparison — particularly harmful for long-term insurance products.",
-    examples:[
-      {text:"Presenting false data on high demand without appropriate context — e.g. 'Only 2 rooms left! 30 others are looking at this right now' — CCPA §1 Illustration (a)",type:"ccpa"},
-      {text:"Falsely creating time-bound pressure by describing a sale as an 'exclusive' offer for a limited time only for a select group of users — CCPA §1 Illustration (b)",type:"ccpa"},
-      {text:"'This premium rate is available to only 3 more applicants at your age and health profile' — shown on health insurance aggregators with no actuarial or system-based justification",type:"ins"},
-      {text:"'Only 200 policies left at current premium before rate revision' — an artificial construct since insurance underwriting capacity is not physically limited this way",type:"ins"}
-    ],
-    fin:2,priv:0,psych:2,det:1,tags:["fin","psych"]
-  },
-  {
-    name:"Fake urgency",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §1 · PDF p.8",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §1 (False Urgency)",
-    desc:"Countdown timers and expiry warnings on insurance quotes that reset on page refresh — manufactured FOMO preventing careful policy comparison.",
-    examples:[
-      {text:"Presenting false data on high demand without appropriate context to mislead a user into making an immediate purchase — CCPA §1(i)",type:"ccpa"},
-      {text:"Falsely implying a sale is an exclusive, time-limited offer for a select group of users when it is not — CCPA §1 Illustration (b)",type:"ccpa"},
-      {text:"Motor renewal quote page shows a '23:47 remaining' countdown — the timer resets to 24 hours on every page reload",type:"ins"},
-      {text:"Life insurance application page: 'Medical examination waived only if you complete purchase in the next 15 minutes' — no such underwriting rule exists",type:"ins"}
-    ],
-    fin:2,priv:0,psych:2,det:1,tags:["fin","psych"]
-  },
-  {
-    name:"Bait and switch",src:"research",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §7 · PDF p.10",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §7",
-    desc:"A policy is advertised at an attractive price or terms; by the time the user reaches payment, the product is unavailable and a more expensive substitute is offered.",
-    examples:[
-      {text:"A seller offers a quality product at a cheap price; when the consumer is about to pay, the seller states the product is no longer available and offers a similar but more expensive alternative — CCPA §7 Illustration (a)",type:"ccpa"},
-      {text:"A product is unavailable but falsely shown as available; once moved to the shopping cart it is revealed as 'out of stock' and a higher-priced product is now presented — CCPA §7 Illustration (b)",type:"ccpa"},
-      {text:"Health insurance ad shows ₹6,500/year; on clicking 'Buy', user is told the product is 'not available in your city' and a ₹9,200 plan is offered instead",type:"ins"},
-      {text:"ULIP sold as 'guaranteed 12% returns' in the agent presentation; the actual product is market-linked with no guaranteed returns — revealed only in the policy schedule post-purchase",type:"ins"}
-    ],
-    fin:2,priv:0,psych:2,det:1,tags:["fin","psych"]
-  },
-  {
-    name:"Sneak into basket",src:"research",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §2 · PDF pp.8–9",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §2 (Basket Sneaking)",
-    desc:"Add-ons, riders, or supplementary covers quietly added to the insurance quote total without explicit user consent — inflating the premium before the payment screen.",
-    examples:[
-      {text:"Automatic addition of paid ancillary services with a pre-ticked box or otherwise to the cart when a consumer is purchasing a product or service — CCPA §2 Illustration (a)",type:"ccpa"},
-      {text:"A user purchases a single salon service; while checking out, a subscription to the salon service is automatically added — CCPA §2 Illustration (b)",type:"ccpa"},
-      {text:"Automatically adding travel insurance while a user purchases a flight ticket — CCPA §2 Illustration (c)",type:"ccpa"},
-      {text:"On motor insurance aggregator quote pages, a 'PA Owner Driver' add-on is already active (green border + × remove icon) before the user interacts with the add-ons panel — its cost is included in the displayed premium without explicit consent",type:"ins"}
-    ],
-    fin:2,priv:0,psych:1,det:2,tags:["fin"]
-  },
-  {
-    name:"Hidden costs",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §8 · PDF pp.10–11",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §8 (Drip Pricing)",
-    desc:"A low price is shown prominently early; GST, stamp duty, and service fees are revealed only at the final checkout step after the user has invested significant time.",
-    examples:[
-      {text:"Elements of price are not revealed upfront or are revealed surreptitiously within the user experience — CCPA §8(i)",type:"ccpa"},
-      {text:"Charging an amount higher than the amount disclosed at the time of checkout — i.e. revealing the true price only post-confirmation of purchase — CCPA §8(ii)",type:"ccpa"},
-      {text:"Ticketmaster-style: ₹800 per ticket becomes ₹1,400 after a 'service fee', 'facility charge', and 'order processing fee' appear at the payment screen",type:"ins"},
-      {text:"Health plan: ₹12,000/year shown on comparison page; monthly payment mode carries a 5% modal loading disclosed only at checkout — actual annual outgo ₹12,600",type:"ins"}
-    ],
-    fin:2,priv:0,psych:1,det:1,tags:["fin"]
-  },
-  {
-    name:"Forced action",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §4 · PDF p.9",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §4",
-    desc:"Users must complete something undesired — sharing data, creating an account, or calling an agent — as a mandatory prerequisite for accessing insurance quotes or policy documents.",
-    examples:[
-      {text:"Forcing a user to subscribe to a newsletter in order to purchase a product — CCPA §4 Illustration (b)",type:"ccpa"},
-      {text:"Forcing a user to share personal information linked with Aadhar or credit card even when such details are not necessary for making the intended purchase — CCPA §4 Illustration (d)",type:"ccpa"},
-      {text:"Making it difficult for consumers to understand and alter their privacy settings, thereby encouraging them to give more personal information than they intend to — CCPA §4(f)",type:"ccpa"},
-      {text:"Insurance aggregator's 'Save your quote' step collects name, mobile, and email with no visible skip option — personal data is captured before any quotes are shown, enabling follow-up sales calls",type:"ins"}
-    ],
-    fin:1,priv:2,psych:1,det:1,tags:["priv","psych"]
-  },
-  {
-    name:"Disguised ads",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §9 · PDF p.11",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §9 (Disguised Advertisement)",
-    desc:"Paid insurer placements are styled as organic 'Best Match' results or editorial recommendations — users click believing they are unbiased results.",
-    examples:[
-      {text:"Posing or masking advertisements as user-generated content, news articles, or organic recommendations — designed to blend into the interface to trick users into clicking on them — CCPA §9 definition",type:"ccpa"},
-      {text:"The responsibility for disclosing that content is an advertisement lies with the seller or advertiser — CCPA §9 Explanation (b)",type:"ccpa"},
-      {text:"Insurance aggregators show sponsored insurers with 'Best Match', 'Recommended', or 'Editor's Choice' badges without disclosing that placement is a paid commercial arrangement",type:"ins"},
-      {text:"Financial content portals publish articles headlined 'Top 5 Term Plans in 2025' that are entirely sponsored content from a single insurer — disclosed only in small grey text at the bottom",type:"ins"}
-    ],
-    fin:1,priv:1,psych:1,det:2,tags:["fin","percep"]
-  },
-  {
-    name:"Nagging",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §10 · PDF p.11",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §10",
-    desc:"Persistent interruptions push insurance purchases — repeated calls, SMS, and pop-ups wear users down into accepting a policy they were not ready to commit to.",
-    examples:[
-      {text:"Websites repeatedly asking users to download their app — CCPA §10 Illustration (a)",type:"ccpa"},
-      {text:"Platforms asking users for their phone numbers or other personal details under the guise of 'security purposes' — CCPA §10 Illustration (b)",type:"ccpa"},
-      {text:"Constant requests to turn on notifications or accept cookies with no meaningful option to say 'No' — CCPA §10 Illustration (c)",type:"ccpa"},
-      {text:"Motor insurer calls within 4 minutes of a user submitting their registration number for a quote — then calls 3 more times over 24 hours even after the user has declined",type:"ins"}
-    ],
-    fin:1,priv:1,psych:2,det:1,tags:["psych"]
-  },
-  {
-    name:"Visual interference",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §6 · PDF p.10",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §6 (Interface Interference)",
-    desc:"Important coverage limitations, exclusions, or costs are de-emphasised through low contrast, small fonts, or misleading layout — while premiums and 'Buy' CTAs are made highly prominent.",
-    examples:[
-      {text:"Designing a light-coloured option for selecting 'No', concealing the cancellation symbol in tiny font, or changing the meaning of key symbols to mean the opposite — CCPA §6 Illustration (a)",type:"ccpa"},
-      {text:"A 'X' icon on the top-right corner of a pop-up leads to opening another advertisement rather than closing the current one — CCPA §6 Illustration (b)",type:"ccpa"},
-      {text:"Motor insurance quote card: ₹4,110 premium in 22px bold; '₹78,525 IDV (Minimum)' coverage amount in 11px grey below — users conflate low premium with good coverage",type:"ins"},
-      {text:"Health policy comparison table: 'Room rent: Sub-limit applies' in light grey italic — the actual sub-limit (1% of SI per day) is only in the policy wording PDF, not on the comparison page",type:"ins"}
-    ],
-    fin:1,priv:1,psych:1,det:2,tags:["percep"]
-  },
-  {
-    name:"Trick wording",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §11 · PDF p.11",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §11 (Trick Question)",
-    desc:"Deliberately confusing, vague, or double-negative language in policy forms causes users to consent to the opposite of their intent — particularly harmful around claims history and NCB declarations.",
-    examples:[
-      {text:"Offering the choice 'Do you wish to opt out of receiving updates forever?' with options 'Yes. I would like to receive updates' and 'Not Now' instead of simply 'Yes' — CCPA §11 Illustration (a)",type:"ccpa"},
-      {text:"NCB declaration pre-filled at 50%: 'I confirm I have not made a claim and my NCB entitlement is as selected above' — a user who did claim must actively notice and correct this, or risk policy cancellation at claim time",type:"ins"},
-      {text:"Health proposal form: 'Do you not have any pre-existing conditions for which you have not sought treatment?' — the double negative causes users to answer incorrectly, providing grounds for claim repudiation",type:"ins"},
-      {text:"Motor policy add-on page: 'Deselect to include Zero Depreciation cover' — clicking 'Deselect' adds the cover and its cost rather than removing it, the opposite of what the word implies",type:"ins"}
-    ],
-    fin:1,priv:1,psych:1,det:2,tags:["psych","percep"]
-  },
-  {
-    name:"Confirmshaming",src:"site",ccpa:true,irdai:true,
-    pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §3 · PDF p.9",
-    irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §3 (Confirm Shaming)",
-    desc:"The decline option is worded to make users feel irresponsible or exposed — pressuring them into accepting unnecessary add-ons or higher cover amounts.",
-    examples:[
-      {text:"A flight booking platform uses the phrase 'I will stay unsecured' when a user does not include insurance in their cart — CCPA §3 Illustration (a)",type:"ccpa"},
-      {text:"A platform adds a charity to the basket without consent and uses the phrase 'Charity is for rich, I don't care' when the user opts out — CCPA §3 Illustration (b)",type:"ccpa"},
-      {text:"Critical illness cover upsell decline button: 'No thanks, I'll let my family handle hospital bills themselves'",type:"ins"},
-      {text:"Term life insurance upgrade dismiss: 'No, I'm comfortable leaving my family with only ₹50 lakh'",type:"ins"}
-    ],
-    fin:1,priv:0,psych:2,det:1,tags:["psych"]
-  },
-  {
-    name:"Obstruction",src:"site",ccpa:false,irdai:false,ccpa_ref:"",pdf_ref:"",irdai_ref:"",
-    desc:"Unnecessary barriers deliberately placed between the user and what they want — most commonly affects free-look cancellations, claim submissions, and mid-term endorsements in insurance.",
-    examples:[
-      {text:"Free-look period cancellation (IRDAI-mandated 15-day right) requires a signed physical letter couriered to a specific city office — no online or email option despite the policy being sold digitally",type:"ins"},
-      {text:"Motor claim intimation via the app generates a reference number but actual claim registration requires a follow-up call to a helpline operating only 9am–6pm on weekdays",type:"ins"},
-      {text:"Mid-term address change on a health policy requires submitting 2 address proof documents to a branch — cannot be done through the insurer's own customer portal",type:"ins"},
-      {text:"Porting a health insurance policy (an IRDAI-guaranteed consumer right) requires the existing insurer to issue a claims history certificate — insurers routinely delay or complicate this process",type:"ins"}
-    ],
-    fin:1,priv:0,psych:2,det:1,tags:["psych"]
-  },
-  {
-    name:"Comparison prevention",src:"site",ccpa:false,irdai:false,ccpa_ref:"",pdf_ref:"",irdai_ref:"",
-    desc:"Policy features and pricing are structured to make meaningful comparison across insurers impossible — mixing different IDV ranges, sub-limits, and bundled add-ons to obscure true value.",
-    examples:[
-      {text:"Motor insurance quotes across insurers show different IDV ranges (₹78,000 vs ₹94,000 vs ₹1,05,000) — making premium comparison meaningless without first normalising for cover amount",type:"ins"},
-      {text:"Health plan comparison tables show 'Room rent: as per actuals' for one plan and '1% of SI per day' for another — without explaining the significant financial impact of the sub-limit difference",type:"ins"},
-      {text:"Add-on bundles (PA+RSA+OPD vs Zero Dep+Engine Protect vs Biker Protection+Consumables) are not broken down by individual add-on cost — making it impossible to compare the value of specific covers",type:"ins"},
-      {text:"Life insurance comparison pages mix annual, monthly, and net-of-tax premium figures across different plans — preventing direct cost comparison without additional calculation",type:"ins"}
-    ],
-    fin:1,priv:0,psych:1,det:1,tags:["fin"]
-  }
+  {name:"Rogue Malwares",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §13 · PDF p.11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §13",edpb_ref:"",eu_ref:"",
+   desc:"Scareware or ransomware falsely convinces users their device has a virus and charges for a fake removal tool that actually installs malware. Also covers piracy platforms with deceptive download links embedding malware.",
+   examples:[
+     {text:"A pirating website or app promises free audio/visual content but leads to embedded malware when the link is accessed — CCPA §13 Illustration (a)",type:"ccpa"},
+     {text:"Consumers on pirated platforms gain access to content but receive persistent pop-ups with malware-embedded advertisements — CCPA §13 Illustration (b)",type:"ccpa"},
+     {text:"Consumers are prompted to click an advertisement or automatically redirected to one, but instead find their personal files locked — a payment is then demanded to regain access — CCPA §13 Illustration (c)",type:"ccpa"},
+     {text:"Fake insurance renewal portals styled identically to established insurers collect premium payments and OTPs but issue no policy document",type:"ins"}
+   ],
+   fin:3,priv:2,psych:2,det:2,tags:["fin","priv","psych"]},
+
+  {name:"SaaS Billing",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §12 · PDF p.11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §12",edpb_ref:"",eu_ref:"",
+   desc:"Generating and collecting recurring payments as covertly as possible — exploiting positive acquisition loops to extract money from users without adequate notification. In insurance: silent auto-renewals, free add-ons converting to paid, and charging for unused riders.",
+   examples:[
+     {text:"No notification is given to the user when a free trial is converted to a paid subscription — CCPA §12 Illustration (a)",type:"ccpa"},
+     {text:"Silent recurring transactions where the user's account is debited without being notified, or monthly subscriptions auto-renew without telling users — CCPA §12 Illustration (b)",type:"ccpa"},
+     {text:"Charging customers for features and services they do not actually use — CCPA §12 Illustration (c)",type:"ccpa"},
+     {text:"Health insurer bundles a ₹1,200/year 'wellness rewards' subscription into the base premium at renewal — opt-out buried in fine print with no separate consent step",type:"ins"}
+   ],
+   fin:3,priv:1,psych:2,det:2,tags:["fin","priv"]},
+
+  {name:"Drip pricing",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §8 · PDF pp.10–11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §8",edpb_ref:"",eu_ref:"",
+   desc:"Price components not revealed upfront or revealed surreptitiously — including charging more than the amount shown at checkout, or advertising something as free without disclosing that continued use requires payment.",
+   examples:[
+     {text:"Consumer books a flight; the platform shows price X at checkout, but charges price Y (higher than X) when payment is made — CCPA §8 Illustration (a)",type:"ccpa"},
+     {text:"A chess app advertised as 'play chess for free' asks for payment after 7 days — the limited free period was not disclosed at download — CCPA §8 Illustration (b)",type:"ccpa"},
+     {text:"A gym membership is purchased; the user must then buy special shoes from the gym to use it — not disclosed at the time of offering the membership — CCPA §8 Illustration (c)",type:"ccpa"},
+     {text:"Bike insurance shows ₹2,800 headline premium — ₹504 GST and ₹350 'policy issuance fee' appear only at the final payment screen, making the total ₹3,654",type:"ins"}
+   ],
+   fin:3,priv:0,psych:2,det:1,tags:["fin"]},
+
+  {name:"Forced Continuity",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §12 · PDF p.11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §12 (SaaS Billing sub-type)",edpb_ref:"",eu_ref:"",
+   desc:"Free trial silently converts to a paid subscription with no notification. Also covers silent auto-renewal and charging for features not used. Differs from SaaS Billing in that it specifically involves a free-to-paid conversion trigger.",
+   examples:[
+     {text:"Silent recurring transactions whereby the user's account is debited without being notified or monthly subscriptions auto-renew without informing users — CCPA §12 Illustration (b)",type:"ccpa"},
+     {text:"No notification is given to the user when a free trial is converted to paid — CCPA §12 Illustration (a)",type:"ccpa"},
+     {text:"Motor insurer offers 'Zero Depreciation cover free for Year 1'; at renewal it auto-applies with no reminder — adding ₹2,100 to the premium",type:"ins"},
+     {text:"OPD cover offered complimentary for 6 months on a health policy converts to ₹1,800/year at the renewal mark with no prior notification",type:"ins"}
+   ],
+   fin:3,priv:0,psych:1,det:2,tags:["fin"]},
+
+  {name:"Subscription Trap",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §5 · PDF pp.9–10",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §5",edpb_ref:"",eu_ref:"",
+   desc:"Making cancellation of a paid subscription impossible or a complex, lengthy process — hiding the cancellation option, making instructions ambiguous, or forcing users to provide payment details even for a free subscription.",
+   examples:[
+     {text:"Making cancellation of a paid subscription impossible or a complex and lengthy process — CCPA §5(i)",type:"ccpa"},
+     {text:"Hiding the cancellation option for a subscription — CCPA §5(ii)",type:"ccpa"},
+     {text:"Forcing a user to provide payment details or authorise auto-debits to avail a free subscription — CCPA §5(iii)",type:"ccpa"},
+     {text:"Free-look period cancellation (IRDAI-mandated 15-day right) requires a signed physical letter couriered to a specific city office — no online or email option despite the policy being sold digitally",type:"ins"}
+   ],
+   fin:3,priv:0,psych:2,det:2,tags:["fin","psych"]},
+
+  {name:"Roach Motel",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §5 · PDF pp.9–10",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §5 (Subscription Trap sub-type)",edpb_ref:"",eu_ref:"",
+   desc:"Easy in, nearly impossible out — the exit path from an account, service, or mailing list is hidden, time-limited, or deliberately complex to discourage leaving.",
+   examples:[
+     {text:"Making cancellation instructions ambiguous, latent, confusing, or cumbersome — CCPA §5(iv)",type:"ccpa"},
+     {text:"Hiding the cancellation option for a subscription, requiring users to contact support with no digital self-service path — CCPA §5(ii)",type:"ccpa"},
+     {text:"A bundled credit-linked life insurance policy sold at loan disbursement can only be cancelled by visiting the bank branch with original loan documents — no digital cancellation path exists",type:"ins"},
+     {text:"Group health policy 'enhanced cover' tier is one click to add; downgrading back requires a written request 60 days before renewal — asymmetric cancellation design",type:"ins"}
+   ],
+   fin:3,priv:0,psych:2,det:1,tags:["fin","psych"]},
+
+  {name:"Privacy zuckering",src:"research",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
+   desc:"Users tricked into sharing far more personal data than intended through confusing settings, bundled consents, or opaque data-sharing agreements buried in terms and conditions.",
+   examples:[
+     {text:"Health insurance app requests fitness tracker data, location, and contacts during onboarding — all bundled into a single consent tick-box",type:"ins"},
+     {text:"Motor insurer telematics app shares driving behaviour data with 'selected marketing partners' — disclosed only in a 72-page policy schedule",type:"ins"},
+     {text:"Insurance aggregator shares submitted quote data (health history, income, family details) with 15+ insurers and their DSAs under broadly worded ToS",type:"ins"},
+     {text:"Life insurer's 'wellness assessment' collects detailed medical history shared with reinsurers and underwriting partners without explicit disclosure",type:"ins"}
+   ],
+   fin:0,priv:3,psych:1,det:2,tags:["priv"]},
+
+  {name:"Friend spam",src:"research",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
+   desc:"App accesses your contact list and sends messages appearing to come from you without consent — used to grow a platform's user base at the user's social expense.",
+   examples:[
+     {text:"Insurance aggregator's referral programme uploads the user's phonebook and sends WhatsApp messages saying '[Name] shared a policy quote with you' — without per-contact consent",type:"ins"},
+     {text:"Health insurance app asks for contacts to 'invite family members to be covered' then sends promotional SMSes to all contacts",type:"ins"},
+     {text:"Life insurance app's 'Gift a policy' feature sends automated emails to all contacts with the buyer's name in the sender line — without review",type:"ins"},
+     {text:"Motor insurer's loyalty app sends renewal reminders to emergency contacts whose numbers were provided for claims purposes, not marketing",type:"ins"}
+   ],
+   fin:0,priv:3,psych:2,det:2,tags:["priv","psych"]},
+
+  {name:"Cookie walls",src:"research",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
+   desc:"Core functionality or content withheld unless the user accepts full cookie tracking — leaving no real choice between accessing the service and protecting privacy.",
+   examples:[
+     {text:"Insurance comparison portal blocks quote results: 'Accept all cookies to view premium quotes' — with no partial consent option",type:"ins"},
+     {text:"Insurer's policy document portal requires accepting advertising cookies before a policyholder can download their own policy schedule",type:"ins"},
+     {text:"Health insurer's claim status tracker is inaccessible without enabling all analytics cookies — even for existing customers",type:"ins"},
+     {text:"Motor insurer's 'compare renewal quotes' page gates access behind full cookie consent with 'Accept All' as the only prominent button",type:"ins"}
+   ],
+   fin:0,priv:3,psych:2,det:1,tags:["priv","psych"]},
+
+  {name:"Interface Interference",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §6 · PDF p.10",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §6",edpb_ref:"",eu_ref:"",
+   desc:"Manipulating the user interface to highlight certain information while obscuring other relevant information — misdirecting the user from taking their desired action through visual hierarchy, colour, and layout.",
+   examples:[
+     {text:"Designing a light-coloured option for selecting 'No', concealing the cancellation symbol in tiny font, or changing key symbol meanings to their opposite — CCPA §6 Illustration (a)",type:"ccpa"},
+     {text:"A 'X' icon on the top-right corner of a pop-up screen leads to opening another advertisement rather than closing the current one — CCPA §6 Illustration (b)",type:"ccpa"},
+     {text:"Motor insurance aggregator shows 'Minimum IDV' pre-selected alongside 'Lowest Price' and 'Best Match' badges — users steered toward minimum-payout coverage without understanding the trade-off",type:"ins"},
+     {text:"Subscription cancellation flow shows 'Keep my plan' as a large primary green button; 'Cancel subscription' is a tiny grey text link below — visual hierarchy actively discourages the intended action",type:"ins"}
+   ],
+   fin:2,priv:1,psych:2,det:2,tags:["psych","percep"]},
+
+  {name:"Sneaking",src:"site",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
+   desc:"Critical terms, exclusions, or costs hidden or deliberately delayed until the user has committed — revealing unfavourable conditions only after premium is paid or personal data submitted.",
+   examples:[
+     {text:"A bike insurance quote flow shows the premium across 4 steps — the sub-limit on engine damage cover appears only in the policy schedule emailed after purchase",type:"ins"},
+     {text:"Health insurer collects personal and medical data across 6 steps; the 20% co-pay clause applicable to all claims is disclosed only in the final policy PDF",type:"ins"},
+     {text:"Aggregator pre-fills NCB at 50% in the quote flow; that this is unverified and could be rejected at claim time is not disclosed anywhere in the journey",type:"ins"},
+     {text:"Travel insurance purchased at a kiosk does not mention adventure sports and pre-existing conditions are excluded until the physical policy document is handed over post-purchase",type:"ins"}
+   ],
+   fin:2,priv:1,psych:1,det:2,tags:["fin","priv"]},
+
+  {name:"Preselection",src:"site",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
+   desc:"Default options beneficial to the business pre-selected — exploiting the default effect to increase opt-ins for add-ons, marketing, or inaccurate data declarations without active user choice.",
+   examples:[
+     {text:"Motor insurance quote forms pre-select 'No' for 'Made any claims in previous year?' — a user who did claim and misses this creates a fraudulent NCB declaration, grounds for claim repudiation",type:"ins"},
+     {text:"NCB pre-set to 50% on motor insurance quote forms — inflating the discount shown and creating a potential mismatch with the actual NCB certificate at the time of a claim",type:"ins"},
+     {text:"'PA Owner Driver' add-on pre-selected with a green active border on aggregator quote pages — automatically adding ₹150–200 to the premium before the user has made any choice",type:"ins"},
+     {text:"'Minimum IDV' pre-selected as cover amount on motor quotes — shows the lowest premium but means the lowest insured declared value payout in case of theft or total loss",type:"ins"}
+   ],
+   fin:2,priv:2,psych:1,det:1,tags:["fin","priv"]},
+
+  {name:"Fake social proof",src:"site",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
+   desc:"Fabricated reviews, claim settlement ratings, or manufactured real-time activity indicators create a false impression of an insurer's reliability or popularity.",
+   examples:[
+     {text:"Insurance aggregator shows '4.8★ based on 12,000 reviews' — reviews include ratings from users who never made a claim and cannot meaningfully evaluate claim service quality",type:"ins"},
+     {text:"'Claim Settlement Ratio: 98%' displayed prominently — without disclosing the figure is 3 years old and excludes repudiated claims under active dispute",type:"ins"},
+     {text:"'2,500 people bought this policy today' shown on a comparison page — no verification that this figure is real-time or accurate",type:"ins"},
+     {text:"Sponsored insurer listings shown under 'Most Popular' or 'Editor's Choice' banners without disclosing that placement is a paid commercial arrangement",type:"ins"}
+   ],
+   fin:2,priv:0,psych:2,det:2,tags:["psych","percep"]},
+
+  {name:"Addictive Design",src:"research",ccpa:false,irdai:false,edpb:false,dsa:true,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"DSA Article 25 & Recital 55 · EU Digital Fairness Act Consultation 2024 · European Parliament Resolution on Addictive Design, Dec 2023",
+   desc:"Features deliberately engineered to maximise compulsive use through variable reward loops, infinite scroll, autoplay, streaks, and penalties for inactivity — causing users to spend more time or money than intended.",
+   examples:[
+     {text:"DSA Recital 55 identifies design features that can 'exploit weaknesses of the human psyche' — platforms with 45M+ EU users must risk-assess infinite scroll, autoplay, and streak mechanics under DSA Article 34 systemic risk assessments",type:"eu"},
+     {text:"EU Digital Fairness Act Consultation (2024) specifically identifies loot boxes, streaks, and autoplay as addictive design features warranting new binding rules — 31% of surveyed consumers reported spending more than intended due to such features",type:"eu"},
+     {text:"Insurance super-app gamification: daily login streaks, reward points for viewing premium quotes, and notifications penalising users for not engaging daily — driving compulsive app use and premium upgrades",type:"ins"},
+     {text:"ULIP and endowment plan apps send 'portfolio performance' notifications timed to positive market days — encouraging daily check-ins that reinforce continued premium payments and top-ups",type:"ins"}
+   ],
+   fin:2,priv:1,psych:2,det:2,tags:["psych","fin"]},
+
+  {name:"Privacy Maze",src:"research",ccpa:false,irdai:false,edpb:true,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"EDPB Guidelines 03/2022 on Deceptive Design Patterns · §4.1.2 (Overloading: Privacy Maze) · v2.0 Feb 2023",eu_ref:"",
+   desc:"Privacy settings, consent withdrawal, or data rights access require navigating through multiple menus and sub-menus — deliberately structured so users give up before completing the action.",
+   examples:[
+     {text:"Social media platform's privacy settings require navigating: Settings > Privacy > Data Usage > Partner Data > Third-Party Processing > Edit — six nested levels, each loading a new page — EDPB §4.1.2 (Privacy Maze)",type:"edpb"},
+     {text:"Withdrawing consent on a social platform requires completing a multi-step form, re-authenticating, and waiting 30 days for processing — documented in EDPB enforcement guidance as a Privacy Maze — EDPB §4.1.2",type:"edpb"},
+     {text:"Health insurer portal: to withdraw consent for data analytics, the path is My Account > Settings > Privacy > Data & Analytics > Partner Sharing > Insurance Partners > Edit Preferences — 7 clicks, each loading a new page",type:"ins"},
+     {text:"Motor insurer app: IRDAI-mandated data access request buried under Help > Legal > IRDAI Rights > Data Access > Submit Form — a path not surfaced in any onboarding or account screen",type:"ins"}
+   ],
+   fin:0,priv:3,psych:1,det:2,tags:["priv"]},
+
+  {name:"Deceptive Snugness",src:"research",ccpa:false,irdai:false,edpb:true,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"EDPB Guidelines 03/2022 on Deceptive Design Patterns · §4.2.1 (Skipping: Deceptive Snugness) · v2.0 Feb 2023",eu_ref:"",
+   desc:"Optional data-sharing choices or consent toggles are styled identically to mandatory form fields — making them appear required so users complete them automatically without realising they had a choice.",
+   examples:[
+     {text:"Registration form places a 'Share my data with advertising partners' checkbox in the same visual style as mandatory fields like name and email — appears required — EDPB §4.2.1 (Deceptive Snugness)",type:"edpb"},
+     {text:"Platform presents a pre-checked 'Accept all personalisation' option as if it is a step in the mandatory account setup flow rather than an optional consent — EDPB §4.2.1",type:"edpb"},
+     {text:"Insurance aggregator's quote form places 'Yes, share my details with all partner insurers' in the same visual style as mandatory fields like date of birth — users proceed without noticing it is optional",type:"ins"},
+     {text:"Health insurer renewal page shows 'Auto-renew: ON' in the same grey display text as non-editable fields like policy number — appearing to be system information rather than a user-controlled toggle",type:"ins"}
+   ],
+   fin:1,priv:2,psych:1,det:2,tags:["priv","percep"]},
+
+  {name:"False Urgency",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §1 · PDF p.8",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §1",edpb_ref:"",eu_ref:"",
+   desc:"Falsely stating or implying urgency or scarcity — showing false popularity, artificially limited quantities, or fake 'exclusive' time-limited offers to push users into unconsidered purchases.",
+   examples:[
+     {text:"Presenting false data on high demand without appropriate context — e.g. 'Only 2 rooms left! 30 others are looking at this right now' — CCPA §1 Illustration (a)",type:"ccpa"},
+     {text:"Falsely creating time-bound pressure by describing a sale as an 'exclusive' offer for a limited time only for a select group of users — CCPA §1 Illustration (b)",type:"ccpa"},
+     {text:"'This premium rate is available to only 3 more applicants at your age and health profile' — shown on health insurance aggregators with no actuarial or system-based justification",type:"ins"},
+     {text:"'Only 200 policies left at current premium before rate revision' — an artificial construct since insurance underwriting capacity is not physically limited this way",type:"ins"}
+   ],
+   fin:2,priv:0,psych:2,det:1,tags:["fin","psych"]},
+
+  {name:"Fake Urgency",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §1 · PDF p.8",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §1 (False Urgency sub-type)",edpb_ref:"",eu_ref:"",
+   desc:"Countdown timers on insurance quotes that reset on page refresh — manufactured FOMO with no real deadline, preventing careful policy comparison.",
+   examples:[
+     {text:"Falsely implying a sense of urgency or scarcity to mislead a user into making an immediate purchase — CCPA §1 definition",type:"ccpa"},
+     {text:"Showing false popularity of a product or service to manipulate user decision-making — CCPA §1(i)",type:"ccpa"},
+     {text:"Motor renewal quote page shows a '23:47 remaining' countdown — the timer resets to 24 hours on every page reload",type:"ins"},
+     {text:"Life insurance application page: 'Medical examination waived only if you complete purchase in the next 15 minutes' — no such underwriting rule exists",type:"ins"}
+   ],
+   fin:2,priv:0,psych:2,det:1,tags:["fin","psych"]},
+
+  {name:"Bait and switch",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §7 · PDF p.10",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §7",edpb_ref:"",eu_ref:"",
+   desc:"Advertising one outcome and delivering another — a policy advertised at an attractive price is unavailable at checkout, and a more expensive substitute is offered instead.",
+   examples:[
+     {text:"A seller offers a quality product at a cheap price; when the consumer is about to pay, the seller states the product is no longer available and offers a similar but more expensive alternative — CCPA §7 Illustration (a)",type:"ccpa"},
+     {text:"A product is unavailable but falsely shown as available; once moved to the cart it is revealed as 'out of stock' and a higher-priced product is now presented — CCPA §7 Illustration (b)",type:"ccpa"},
+     {text:"Health insurance ad shows ₹6,500/year; on clicking 'Buy', user is told the product is 'not available in your city' and a ₹9,200 plan is offered instead",type:"ins"},
+     {text:"ULIP sold as 'guaranteed 12% returns' in the agent presentation; the actual product is market-linked with no guaranteed returns — revealed only in the policy schedule post-purchase",type:"ins"}
+   ],
+   fin:2,priv:0,psych:2,det:1,tags:["fin","psych"]},
+
+  {name:"Basket Sneaking",src:"research",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §2 · PDF pp.8–9",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §2",edpb_ref:"",eu_ref:"",
+   desc:"Inclusion of additional items — products, services, charity donations — at checkout without user consent, such that the total exceeds what the user intended to pay. Free samples and explicitly disclosed necessary fees are exempt.",
+   examples:[
+     {text:"Automatic addition of paid ancillary services with a pre-ticked box or otherwise to the cart when a consumer is purchasing a product or service — CCPA §2 Illustration (a)",type:"ccpa"},
+     {text:"A user purchases a single salon service; while checking out, a subscription to the salon service is automatically added — CCPA §2 Illustration (b)",type:"ccpa"},
+     {text:"Automatically adding travel insurance while a user purchases a flight ticket — CCPA §2 Illustration (c)",type:"ccpa"},
+     {text:"On motor insurance aggregator quote pages, a 'PA Owner Driver' add-on is already active (green border + × remove icon) before the user interacts with the add-ons panel — its cost included in the displayed premium without explicit consent",type:"ins"}
+   ],
+   fin:2,priv:0,psych:1,det:2,tags:["fin"]},
+
+  {name:"Hidden costs",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §8 · PDF pp.10–11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §8 (Drip Pricing sub-type)",edpb_ref:"",eu_ref:"",
+   desc:"A low price shown prominently early; GST, stamp duty, and service fees revealed only at the final checkout step after the user has invested significant time in the journey.",
+   examples:[
+     {text:"Elements of price are not revealed upfront or are revealed surreptitiously within the user experience — CCPA §8(i)",type:"ccpa"},
+     {text:"Charging an amount higher than the amount disclosed at the time of checkout — revealing the true price only post-confirmation of purchase — CCPA §8(ii)",type:"ccpa"},
+     {text:"Bike insurance: ₹800 per ticket becomes ₹1,400 after a 'service fee', 'facility charge', and 'order processing fee' appear at the payment screen",type:"ins"},
+     {text:"Health plan: ₹12,000/year shown on comparison page; monthly payment mode carries a 5% modal loading disclosed only at checkout — actual annual outgo ₹12,600",type:"ins"}
+   ],
+   fin:2,priv:0,psych:1,det:1,tags:["fin"]},
+
+  {name:"Forced action",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §4 · PDF p.9",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §4",edpb_ref:"",eu_ref:"",
+   desc:"Forcing users to take an action — buying additional goods, signing up for an unrelated service, or sharing personal information — as a prerequisite for accessing what they originally intended.",
+   examples:[
+     {text:"Forcing a user to subscribe to a newsletter in order to purchase a product — CCPA §4 Illustration (b)",type:"ccpa"},
+     {text:"Forcing a user to share personal information linked with Aadhar or credit card even when such details are not necessary for making the intended purchase — CCPA §4 Illustration (d)",type:"ccpa"},
+     {text:"Making it difficult for consumers to understand and alter their privacy settings, thereby encouraging them to share more personal information than they intend to — CCPA §4(f)",type:"ccpa"},
+     {text:"Insurance aggregator's 'Save your quote' step collects name, mobile, and email with no visible skip option — personal data captured before any quotes are shown, enabling follow-up sales calls",type:"ins"}
+   ],
+   fin:1,priv:2,psych:1,det:1,tags:["priv","psych"]},
+
+  {name:"Disguised Advertisement",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §9 · PDF p.11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §9",edpb_ref:"",eu_ref:"",
+   desc:"Paid advertisements posed as user-generated content, news articles, or organic recommendations — designed to blend into the interface to trick users into clicking on them.",
+   examples:[
+     {text:"Posing or masking advertisements as user-generated content, news articles, or organic recommendations to trick customers into clicking on them — CCPA §9 definition",type:"ccpa"},
+     {text:"The responsibility for disclosing that content is an advertisement lies with the seller or advertiser — CCPA §9 Explanation (b)",type:"ccpa"},
+     {text:"Insurance aggregators show sponsored insurers with 'Best Match', 'Recommended', or 'Editor's Choice' badges without disclosing that placement is a paid commercial arrangement",type:"ins"},
+     {text:"Financial content portals publish articles headlined 'Top 5 Term Plans in 2025' that are entirely sponsored by a single insurer — disclosed only in small grey text at the bottom",type:"ins"}
+   ],
+   fin:1,priv:1,psych:1,det:2,tags:["fin","percep"]},
+
+  {name:"Nagging",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §10 · PDF p.11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §10",edpb_ref:"",eu_ref:"",
+   desc:"User disrupted and annoyed by repeated, persistent interactions in the form of requests, information, options, or interruptions — to effectuate a transaction and make commercial gains, unless specifically permitted by the user.",
+   examples:[
+     {text:"Websites asking a user to download their app, again and again — CCPA §10 Illustration (a)",type:"ccpa"},
+     {text:"Platforms asking users for their phone numbers or other personal details for supposedly security purposes — CCPA §10 Illustration (b)",type:"ccpa"},
+     {text:"Constant requests to turn on notifications or accept cookies with no meaningful option to say 'No' — CCPA §10 Illustration (c)",type:"ccpa"},
+     {text:"Motor insurer calls within 4 minutes of a user submitting their registration number for a quote — then calls 3 more times over 24 hours even after the user has declined",type:"ins"}
+   ],
+   fin:1,priv:1,psych:2,det:1,tags:["psych"]},
+
+  {name:"Dead End",src:"research",ccpa:false,irdai:false,edpb:true,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"EDPB Guidelines 03/2022 on Deceptive Design Patterns · §4.4.1 (Hindering: Dead End) · v2.0 Feb 2023",eu_ref:"",
+   desc:"Users attempting to exercise a data right, cancel a subscription, or delete an account are taken to a page that provides no forward path — a broken link, a generic error, or an instruction to contact support with no contact details.",
+   examples:[
+     {text:"User attempts to delete a social media account; clicking 'Delete account' leads to a help page with no delete option — EDPB §4.4.1 (Dead End)",type:"edpb"},
+     {text:"A 'Request data access' button on a platform leads to a page saying 'This feature is temporarily unavailable' with no timeline or alternative — EDPB §4.4.1",type:"edpb"},
+     {text:"Insurer's app 'Download my policy data' option returns 'Feature not available — contact your branch' with no branch details or digital alternative",type:"ins"},
+     {text:"IRDAI grievance submission link in an insurer's app leads to a 404 error page with no alternative, leaving policyholders with no digital recourse",type:"ins"}
+   ],
+   fin:0,priv:2,psych:2,det:1,tags:["priv","psych"]},
+
+  {name:"Visual Interference",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §6 · PDF p.10",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §6 (Interface Interference sub-type)",edpb_ref:"",eu_ref:"",
+   desc:"Important coverage limitations, exclusions, or costs de-emphasised through low contrast, small fonts, or misleading layout — while premiums and 'Buy' CTAs are made highly prominent.",
+   examples:[
+     {text:"Designing a light-coloured option for selecting 'No', concealing the cancellation symbol in tiny font, or changing key symbol meanings to their opposite — CCPA §6 Illustration (a)",type:"ccpa"},
+     {text:"A 'X' icon on a pop-up screen leads to opening another advertisement rather than closing the current one — CCPA §6 Illustration (b)",type:"ccpa"},
+     {text:"Motor insurance quote card: ₹4,110 premium in 22px bold; '₹78,525 IDV (Minimum)' coverage amount in 11px grey below — users conflate low premium with good coverage",type:"ins"},
+     {text:"Health policy comparison: 'Room rent: Sub-limit applies' in light grey italic — the actual sub-limit (1% of SI per day) is only in the policy wording PDF, not on the comparison page",type:"ins"}
+   ],
+   fin:1,priv:1,psych:1,det:2,tags:["percep"]},
+
+  {name:"Trick Question",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §11 · PDF p.11",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §11",edpb_ref:"",eu_ref:"",
+   desc:"Deliberate use of confusing or vague language — confusing wording, double negatives, or other tricks — to misguide users from taking their desired action or lead them to an unintended response.",
+   examples:[
+     {text:"Offering the choice 'Do you wish to opt out of receiving updates forever?' with options 'Yes. I would like to receive updates' and 'Not Now' instead of simply 'Yes' — CCPA §11 Illustration (a)",type:"ccpa"},
+     {text:"NCB declaration pre-filled at 50%: 'I confirm I have not made a claim and my NCB entitlement is as selected above' — a user who did claim must actively notice and correct this, or risk policy cancellation at claim time",type:"ins"},
+     {text:"Health proposal form: 'Do you not have any pre-existing conditions for which you have not sought treatment?' — the double negative causes users to answer incorrectly, providing grounds for claim repudiation",type:"ins"},
+     {text:"Motor policy add-on page: 'Deselect to include Zero Depreciation cover' — clicking 'Deselect' adds the cover and its cost rather than removing it",type:"ins"}
+   ],
+   fin:1,priv:1,psych:1,det:2,tags:["psych","percep"]},
+
+  {name:"Confirm Shaming",src:"site",ccpa:true,irdai:true,edpb:false,dsa:false,
+   pdf_ref:"Dark_Patterns_Nov_2023.pdf · Annexure 1, §3 · PDF p.9",irdai_ref:"IRDAI_Circular_Apr_2026.pdf · p.1",ccpa_ref:"CCPA §3",edpb_ref:"",eu_ref:"",
+   desc:"Using a phrase, video, audio or any other means to create fear, shame, ridicule, or guilt in the user's mind — to nudge them into purchasing a product or continuing a subscription by subverting their choice.",
+   examples:[
+     {text:"A flight booking platform uses the phrase 'I will stay unsecured' when a user does not include insurance in their cart — CCPA §3 Illustration (a)",type:"ccpa"},
+     {text:"A platform adds a charity to the basket without consent and uses the phrase 'Charity is for rich, I don't care' when the user opts out — CCPA §3 Illustration (b)",type:"ccpa"},
+     {text:"Critical illness cover upsell decline button: 'No thanks, I'll let my family handle hospital bills themselves'",type:"ins"},
+     {text:"Term life insurance upgrade dismiss: 'No, I'm comfortable leaving my family with only ₹50 lakh'",type:"ins"}
+   ],
+   fin:1,priv:0,psych:2,det:1,tags:["psych"]},
+
+  {name:"Obstruction",src:"site",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
+   desc:"Unnecessary barriers deliberately placed between the user and what they want — most commonly affecting free-look cancellations, claim submissions, and mid-term endorsements in insurance.",
+   examples:[
+     {text:"Free-look period cancellation (IRDAI-mandated 15-day right) requires a signed physical letter couriered to a specific city office — no online or email option despite the policy being sold digitally",type:"ins"},
+     {text:"Motor claim intimation via the app generates a reference number but actual claim registration requires a follow-up call to a helpline operating only 9am–6pm on weekdays",type:"ins"},
+     {text:"Mid-term address change on a health policy requires submitting 2 address proof documents to a branch — cannot be done through the insurer's own customer portal",type:"ins"},
+     {text:"Porting a health insurance policy (an IRDAI-guaranteed consumer right) requires the existing insurer to issue a claims history certificate — insurers routinely delay or complicate this process",type:"ins"}
+   ],
+   fin:1,priv:0,psych:2,det:1,tags:["psych"]},
+
+  {name:"Comparison prevention",src:"site",ccpa:false,irdai:false,edpb:false,dsa:false,
+   pdf_ref:"",irdai_ref:"",ccpa_ref:"",edpb_ref:"",eu_ref:"",
+   desc:"Policy features and pricing structured to make meaningful comparison across insurers impossible — mixing different IDV ranges, sub-limits, and bundled add-ons to obscure true value.",
+   examples:[
+     {text:"Motor insurance quotes across insurers show different IDV ranges (₹78,000 vs ₹94,000 vs ₹1,05,000) — making premium comparison meaningless without first normalising for cover amount",type:"ins"},
+     {text:"Health plan comparison tables show 'Room rent: as per actuals' for one plan and '1% of SI per day' for another — without explaining the significant financial impact of the sub-limit difference",type:"ins"},
+     {text:"Add-on bundles (PA+RSA+OPD vs Zero Dep+Engine Protect vs Biker Protection+Consumables) not broken down by individual cost — making it impossible to compare the value of specific covers",type:"ins"},
+     {text:"Life insurance comparison pages mix annual, monthly, and net-of-tax premium figures across different plans — preventing direct cost comparison without additional calculation",type:"ins"}
+   ],
+   fin:1,priv:0,psych:1,det:1,tags:["fin"]}
 ];
 
 P.forEach(p=>{ p.score=p.fin+p.priv+p.psych+p.det; });
@@ -511,11 +526,19 @@ let curSrc="all", curHarm="all", curSort="score-desc", renderedData=[];
 function makeCard(p,i){
   const bHtml=BARS.map(b=>`<div class="bar-row"><span class="bar-lbl">${b.l}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round((p[b.k]/barMax(b.k))*100)}%;background:${barCol(b.k)}"></div></div><span>${p[b.k]}/${barMax(b.k)}</span></div>`).join("");
   const tHtml=p.tags.map(t=>`<span class="tag tag-${t}">${TL[t]}</span>`).join("");
-  const regHtml=(p.ccpa?`<span class="tag tag-ccpa">CCPA</span>`:"")+( p.irdai?`<span class="tag tag-irdai">IRDAI</span>`:"");
+  const regHtml=(p.ccpa?`<span class="tag tag-ccpa">CCPA</span>`:"")+
+               (p.irdai?`<span class="tag tag-irdai">IRDAI</span>`:"")+
+               (p.edpb?`<span class="tag tag-edpb">EDPB</span>`:"")+
+               (p.dsa?`<span class="tag tag-dsa">EU/DSA</span>`:"");
   const srcLabel=p.src==="site"?"deceptive.design":"Research";
-  const srcRef=p.pdf_ref?`<div class="src-ref">📄 ${p.pdf_ref}${p.irdai_ref?" &nbsp;|&nbsp; 📄 "+p.irdai_ref:""}</div>`:"";
+  const refStr=p.pdf_ref||p.edpb_ref||p.eu_ref;
+  const srcRef=refStr?`<div class="src-ref">📄 ${p.pdf_ref||p.edpb_ref||p.eu_ref}${p.pdf_ref&&p.irdai_ref?" &nbsp;|&nbsp; 📄 "+p.irdai_ref:""}</div>`:"";
   const hasCcpaEx=p.examples.some(e=>e.type==="ccpa");
-  const hint=hasCcpaEx?"View CCPA illustrations + insurance examples →":"View insurance examples →";
+  const hasEuEx=p.examples.some(e=>e.type==="edpb"||e.type==="eu");
+  let hint="View insurance examples →";
+  if(hasCcpaEx&&hasEuEx) hint="View CCPA & EDPB illustrations + insurance examples →";
+  else if(hasCcpaEx) hint="View CCPA illustrations + insurance examples →";
+  else if(hasEuEx) hint="View EDPB illustrations + insurance examples →";
   return `<div class="card" data-idx="${i}" tabindex="0" role="button" aria-label="View examples for ${p.name}">
     <div class="card-top"><div class="card-name">${p.name}</div><div class="score-badge ${sc(p.score)}">${p.score}</div></div>
     <div class="card-desc">${p.desc}</div>
@@ -529,6 +552,7 @@ function makeCard(p,i){
 function render(){
   let data=[...P].map((p,i)=>({...p,_oi:i}));
   if(curSrc==="ccpa") data=data.filter(p=>p.ccpa);
+  else if(curSrc==="eu") data=data.filter(p=>p.edpb||p.dsa);
   else if(curSrc==="site") data=data.filter(p=>p.src==="site");
   else if(curSrc==="research") data=data.filter(p=>p.src==="research");
   if(curHarm!=="all") data=data.filter(p=>p.tags.includes(curHarm));
@@ -537,11 +561,11 @@ function render(){
   else data.sort((a,b)=>a.name.localeCompare(b.name));
   renderedData=data;
   document.getElementById("cardGrid").innerHTML=data.map((p,i)=>makeCard(p,i)).join("");
-  document.getElementById("countLabel").textContent=`Showing ${data.length} of 26 patterns`;
+  document.getElementById("countLabel").textContent=`Showing ${data.length} of 30 patterns`;
   document.getElementById("s-total").textContent=data.length;
-  document.getElementById("s-reg").textContent=data.filter(p=>p.ccpa).length;
+  document.getElementById("s-ccpa").textContent=data.filter(p=>p.ccpa).length;
+  document.getElementById("s-eu").textContent=data.filter(p=>p.edpb||p.dsa).length;
   document.getElementById("s-crit").textContent=data.filter(p=>p.score>=8).length;
-  document.getElementById("s-high").textContent=data.filter(p=>p.score>=6&&p.score<8).length;
   document.querySelectorAll(".card").forEach(card=>{
     const open=()=>openModal(parseInt(card.dataset.idx));
     card.addEventListener("click",open);
@@ -557,29 +581,36 @@ function openModal(i){
   badge.className="score-badge "+sc(p.score);
   document.getElementById("modal-score-info").innerHTML=`<strong style="color:#1a1a18;font-size:12px">${scLabel(p.score)} danger &mdash; ${p.score}/10</strong><br>Financial ${p.fin}/3 &nbsp;&middot;&nbsp; Privacy ${p.priv}/3 &nbsp;&middot;&nbsp; Psychological ${p.psych}/2 &nbsp;&middot;&nbsp; Detection difficulty ${p.det}/2`;
   const tHtml=p.tags.map(t=>`<span class="tag tag-${t}">${TL[t]}</span>`).join("");
-  const regHtml=(p.ccpa?`<span class="tag tag-ccpa">CCPA</span>`:"")+( p.irdai?`<span class="tag tag-irdai">IRDAI</span>`:"");
+  const regHtml=(p.ccpa?`<span class="tag tag-ccpa">CCPA</span>`:"")+
+               (p.irdai?`<span class="tag tag-irdai">IRDAI</span>`:"")+
+               (p.edpb?`<span class="tag tag-edpb">EDPB</span>`:"")+
+               (p.dsa?`<span class="tag tag-dsa">EU/DSA</span>`:"");
   document.getElementById("modal-tags").innerHTML=regHtml+tHtml;
   document.getElementById("modal-desc").innerHTML=p.desc;
 
   const hasCcpa=p.examples.some(e=>e.type==="ccpa");
+  const hasEdpb=p.examples.some(e=>e.type==="edpb");
+  const hasEu=p.examples.some(e=>e.type==="eu");
   const hasIns=p.examples.some(e=>e.type==="ins");
   let legendHtml="";
-  if(hasCcpa) legendHtml+=`<span style="display:flex;align-items:center;gap:4px"><span class="ex-badge ex-badge-ccpa">CCPA</span> Official illustration from Annexure 1</span>`;
-  if(hasIns)  legendHtml+=`<span style="display:flex;align-items:center;gap:4px"><span class="ex-badge ex-badge-ins">Insurance</span> Sector-specific example</span>`;
+  if(hasCcpa) legendHtml+=`<span style="display:flex;align-items:center;gap:4px"><span class="ex-badge ex-badge-ccpa">CCPA</span> Official Gazette illustration</span>`;
+  if(hasEdpb) legendHtml+=`<span style="display:flex;align-items:center;gap:4px"><span class="ex-badge ex-badge-edpb">EDPB</span> Official EDPB illustration</span>`;
+  if(hasEu) legendHtml+=`<span style="display:flex;align-items:center;gap:4px"><span class="ex-badge ex-badge-eu">EU/DSA</span> EU regulatory reference</span>`;
+  if(hasIns) legendHtml+=`<span style="display:flex;align-items:center;gap:4px"><span class="ex-badge ex-badge-ins">Insurance</span> Sector-specific example</span>`;
   document.getElementById("modal-ex-legend").innerHTML=legendHtml;
 
-  document.getElementById("modal-examples-list").innerHTML=p.examples.map(ex=>{
-    const isCcpa=ex.type==="ccpa";
-    return `<div class="ex-item ${isCcpa?"ex-item-ccpa":"ex-item-ins"}">
-      <span class="ex-badge ${isCcpa?"ex-badge-ccpa":"ex-badge-ins"}">${isCcpa?"CCPA":"Insurance"}</span>
+  document.getElementById("modal-examples-list").innerHTML=p.examples.map(ex=>`
+    <div class="ex-item ${itemClass(ex.type)}">
+      <span class="ex-badge ${badgeClass(ex.type)}">${badgeLabel(ex.type)}</span>
       <div class="ex-text">${ex.text}</div>
-    </div>`;
-  }).join("");
+    </div>`).join("");
 
   let regHtml2="";
   if(p.pdf_ref) regHtml2+=`<div class="reg-ref-item"><span class="reg-ref-icon">📄</span><div><strong style="color:#1a1a18">CCPA source:</strong> ${p.pdf_ref}<br><em style="color:#9b9b96">Section: ${p.ccpa_ref}</em></div></div>`;
   if(p.irdai_ref) regHtml2+=`<div class="reg-ref-item" style="margin-top:6px"><span class="reg-ref-icon">📄</span><div><strong style="color:#1a1a18">IRDAI source:</strong> ${p.irdai_ref}</div></div>`;
-  if(!p.pdf_ref&&!p.irdai_ref) regHtml2=`<p style="font-size:11px;color:#9b9b96">Not explicitly named in CCPA 2023 or IRDAI Circular Apr 2026, but well-documented in UX research literature.</p>`;
+  if(p.edpb_ref) regHtml2+=`<div class="reg-ref-item" style="margin-top:6px"><span class="reg-ref-icon">📄</span><div><strong style="color:#1a1a18">EDPB source:</strong> ${p.edpb_ref}</div></div>`;
+  if(p.eu_ref) regHtml2+=`<div class="reg-ref-item" style="margin-top:6px"><span class="reg-ref-icon">📄</span><div><strong style="color:#1a1a18">EU source:</strong> ${p.eu_ref}</div></div>`;
+  if(!p.pdf_ref&&!p.irdai_ref&&!p.edpb_ref&&!p.eu_ref) regHtml2=`<p style="font-size:11px;color:#9b9b96">Not explicitly named in CCPA 2023, IRDAI Apr 2026, or EDPB Guidelines 03/2022. Well-documented in UX research literature.</p>`;
   document.getElementById("modal-reg").innerHTML=`<div class="modal-section-title" style="margin-bottom:6px">Regulatory references</div>${regHtml2}`;
 
   document.getElementById("overlay").classList.add("open");
@@ -595,7 +626,6 @@ function closeModal(){
 document.getElementById("modal-close").addEventListener("click",closeModal);
 document.getElementById("overlay").addEventListener("click",e=>{ if(e.target===document.getElementById("overlay")) closeModal(); });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeModal(); });
-
 document.querySelectorAll(".fbtn").forEach(b=>{
   b.addEventListener("click",()=>{
     document.querySelectorAll(".fbtn").forEach(x=>x.classList.remove("active"));
